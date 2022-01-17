@@ -6,7 +6,7 @@ export default function TemperatureInput({temperature,onTemperatureChange,scale}
     return(
         <fieldset>
                 <legend>Input temperature in {tempScale[scale]}</legend>
-                <input type="text" value={temperature} onChange={this.inputHandler}/>
+                <input type="text" value={temperature} onChange={onTemperatureChange}/>
             </fieldset>
     );
 }
