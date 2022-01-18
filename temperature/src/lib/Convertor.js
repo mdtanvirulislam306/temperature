@@ -13,5 +13,6 @@ export function convert(temperature, convertTo){
     }
     const output = convertTo(input);
     const rounded = Math.round(output*1000)/1000;
+    return rounded.toString();
 }
 
