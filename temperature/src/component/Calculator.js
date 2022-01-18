@@ -5,7 +5,7 @@ import {convert,toCelsius,toFarhenheid} from "../lib/Convertor";
 export default class Calculator extends React.Component{
     state={
         temperature:"",
-        scale:'c'
+        scale:null
     }
     inputHandler=(e,scale)=>{
         this.setState({
@@ -19,11 +19,13 @@ export default class Calculator extends React.Component{
         const ferhenheid = scale=='c'?convert(temperature,toFarhenheid):temperature;
        
         return(
-            <>
+            <div className="col-md-6 m-auto p-5 bg-info text-center mt-5">
             <TemperatureInput temperature={celsius} scale={'c'} onTemperatureChange={this.inputHandler}/>
             <TemperatureInput temperature={ferhenheid} scale={'f'} onTemperatureChange={this.inputHandler}/>
-            <BoilingVerdict celsius={parseFloat(celsius)} />
-            </>
+            <div className="text-danger">
+            <BoilingVerdict temp={celsius} />
+            </div>
+            </div>
         );
     }
 }
